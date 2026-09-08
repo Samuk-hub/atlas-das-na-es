@@ -3,34 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curiosidades Mundiais</title>
+    <title>🌍 Países do Mundo - ONU</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">🌍 Curiosidades Mundiais</div>
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="paises.html">Países</a></li>
-            <li><a href="curiosidades.html">Curiosidades</a></li>
-            <li><a href="cadastro.html">Cadastrar Curiosidade</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1>🌍 Países do Mundo</h1>
+        <p>193 países reconhecidos pela ONU</p>
+    </header>
 
-    <main class="container">
-        <section class="hero">
-            <h1>Bem-vindo ao Mundo das Curiosidades!</h1>
-            <p>Explore fatos interessantes sobre países ao redor do mundo</p>
-        </section>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="🔍 Digite o nome do país...">
+        <select id="continentFilter">
+            <option value="all">🌎 Todos os Continentes</option>
+            <option value="África">🌍 África</option>
+            <option value="Ásia">🌏 Ásia</option>
+            <option value="Europa">🏰 Europa</option>
+            <option value="América do Norte">🗽 América do Norte</option>
+            <option value="América do Sul">🏔️ América do Sul</option>
+            <option value="Oceania">🏝️ Oceania</option>
+        </select>
+        <button onclick="resetFilters()">🔄 Limpar</button>
+    </div>
 
-        <section class="featured-countries">
-            <h2>Países em Destaque</h2>
-            <div class="country-grid" id="featuredCountries">
-                <!-- Carregado via JavaScript -->
-            </div>
-        </section>
-    </main>
+    <div class="stats">
+        <div class="stat-card">
+            <h3>Total de Países</h3>
+            <p id="totalCountries">193</p>
+        </div>
+        <div class="stat-card">
+            <h3>Países Exibidos</h3>
+            <p id="displayedCountries">193</p>
+        </div>
+    </div>
 
-    <script src="js/main.js"></script>
+    <div id="countriesGrid" class="countries-grid">
+        <!-- Os países serão carregados aqui -->
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalCountryDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 - Pesquisa de Países | Dados da ONU</p>
+    </footer>
+
+    <script src="countries.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

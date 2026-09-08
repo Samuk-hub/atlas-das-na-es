@@ -8,190 +8,286 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    color: #333;
 }
 
-/* Navbar */
-.navbar {
-    background: #2c3e50;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.nav-brand {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-    color: #3498db;
-}
-
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    padding: 2rem;
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 3rem 0;
+header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 10px;
-    margin-bottom: 2rem;
-}
-
-.hero h1 {
+    padding: 40px 20px;
+    text-align: center;
     color: white;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
-.hero p {
-    color: rgba(255,255,255,0.9);
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
     font-size: 1.2rem;
+    opacity: 0.9;
 }
 
-/* Grid Systems */
-.country-grid, .curiosidades-grid {
+.search-container {
+    max-width: 900px;
+    margin: -30px auto 30px;
+    padding: 0 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+#searchInput {
+    flex: 1;
+    min-width: 250px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+#searchInput:focus {
+    outline: none;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+}
+
+#continentFilter {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#continentFilter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+}
+
+button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    background: #ff6b6b;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+}
+
+.stats {
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    flex: 1;
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.stat-card h3 {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-card p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.countries-grid {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 25px;
 }
 
-.country-card, .curiosidade-card {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 1.5rem;
+.country-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.country-card:hover, .curiosidade-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+.country-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
 .country-flag {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.country-name {
+.country-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.country-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 700px;
+    position: relative;
+    animation: modalOpen 0.3s;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+@keyframes modalOpen {
+    from {
+        transform: scale(0.7) translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 2rem;
     font-weight: bold;
+    cursor: pointer;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.close:hover {
+    color: #ff6b6b;
+    transform: rotate(90deg);
+}
+
+.modal-flag {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.modal-details {
+    line-height: 1.8;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.modal-details p {
+    margin-bottom: 15px;
     font-size: 1.1rem;
-    color: #2c3e50;
 }
 
-/* Search Input */
-#searchCountry {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin-bottom: 2rem;
+.modal-details strong {
+    color: #667eea;
 }
 
-#searchCountry:focus {
-    outline: none;
-    border-color: #3498db;
-}
-
-/* Form */
-.form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-    font-weight: 600;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #3498db;
-}
-
-/* Buttons */
-.btn-primary {
-    background: #3498db;
+footer {
+    background: #333;
     color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
 }
 
-.btn-primary:hover {
-    background: #2980b9;
-}
-
-.btn-delete {
-    background: #e74c3c;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 0.5rem;
-}
-
-.btn-delete:hover {
-    background: #c0392b;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-    .nav-menu {
-        flex-direction: column;
-        gap: 1rem;
+    header h1 {
+        font-size: 2rem;
     }
     
-    .container {
-        padding: 1rem;
+    .countries-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: -20px;
+    }
+    
+    #searchInput {
+        width: 100%;
     }
 }
