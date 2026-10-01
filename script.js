@@ -98,3 +98,19 @@ displayCountries(countries);
 
 // Ordenar países alfabeticamente
 countries.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
+
+async function buscarDadosDoBanco() {
+  try {
+    // Chama a função serverless criada na Parte 3
+    const resposta = await fetch('/.netlify/functions/conectar');
+    const dados = await resposta.json();
+
+    console.log('Dados recebidos do MongoDB:', dados);
+    // Aqui você pode manipular os dados no HTML da sua página
+  } catch (erro) {
+    console.error('Erro ao conectar com a função:', erro);
+  }
+}
+
+// Executa a busca ao carregar a página
+buscarDadosDoBanco();
