@@ -1,382 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Escola Futuro</title>
-
-    <link rel="stylesheet" href="estilo.css">
+    <title>🌍 Países do Mundo - ONU</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- MENU -->
-
     <header>
-
-        <div class="logo">
-            🏫 Escola Futuro
-        </div>
-
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#disciplinas">Disciplinas</a>
-            <a href="#professores">Professores</a>
-            <a href="#noticias">Notícias</a>
-            <a href="#calendario">Calendário</a>
-            <a href="#contato">Contato</a>
-        </nav>
-
+        <h1>🌍 Países do Mundo</h1>
+        <p>193 países reconhecidos pela ONU</p>
     </header>
 
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="🔍 Digite o nome do país...">
+        <select id="continentFilter">
+            <option value="all">🌎 Todos os Continentes</option>
+            <option value="África">🌍 África</option>
+            <option value="Ásia">🌏 Ásia</option>
+            <option value="Europa">🏰 Europa</option>
+            <option value="América do Norte">🗽 América do Norte</option>
+            <option value="América do Sul">🏔️ América do Sul</option>
+            <option value="Oceania">🏝️ Oceania</option>
+        </select>
+        <button onclick="resetFilters()">🔄 Limpar</button>
+    </div>
 
-    <!-- INÍCIO -->
-
-    <section id="inicio" class="inicio">
-
-        <div class="inicio-texto">
-
-            <h1>Bem-vindo à Escola Futuro!</h1>
-
-            <p>
-                Educação, conhecimento e oportunidades
-                para construir um futuro melhor.
-            </p>
-
-            <button onclick="mostrarMensagem()">
-                Conheça nossa escola
-            </button>
-
+    <div class="stats">
+        <div class="stat-card">
+            <h3>Total de Países</h3>
+            <p id="totalCountries">193</p>
         </div>
-
-    </section>
-
-
-    <!-- SOBRE -->
-
-    <section id="sobre" class="secao">
-
-        <h2>🏫 Sobre a Escola</h2>
-
-        <p>
-            A Escola Futuro é uma instituição dedicada à educação
-            e ao desenvolvimento dos estudantes.
-        </p>
-
-        <p>
-            Nosso objetivo é proporcionar um ambiente de aprendizado,
-            respeito, criatividade e colaboração.
-        </p>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>🎓 Educação</h3>
-                <p>
-                    Incentivamos o aprendizado e o desenvolvimento
-                    dos nossos alunos.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🤝 Respeito</h3>
-                <p>
-                    Valorizamos o respeito entre alunos,
-                    professores e funcionários.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>💡 Tecnologia</h3>
-                <p>
-                    Utilizamos a tecnologia como ferramenta
-                    para auxiliar no aprendizado.
-                </p>
-            </div>
-
+        <div class="stat-card">
+            <h3>Países Exibidos</h3>
+            <p id="displayedCountries">193</p>
         </div>
+    </div>
 
-    </section>
+    <div id="countriesGrid" class="countries-grid">
+        <!-- Os países serão carregados aqui -->
+    </div>
 
-
-    <!-- DISCIPLINAS -->
-
-    <section id="disciplinas" class="secao">
-
-        <h2>📚 Disciplinas</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>📖 Português</h3>
-                <p>
-                    Língua portuguesa, literatura e produção textual.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>➗ Matemática</h3>
-                <p>
-                    Matemática, álgebra, geometria e resolução de problemas.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🌎 Geografia</h3>
-                <p>
-                    Estudo do espaço geográfico e das sociedades.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>📜 História</h3>
-                <p>
-                    Estudo dos principais acontecimentos históricos.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🔬 Ciências</h3>
-                <p>
-                    Conhecimentos sobre natureza, tecnologia e ciência.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>💻 Informática</h3>
-                <p>
-                    Tecnologia, programação e conhecimentos digitais.
-                </p>
-            </div>
-
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalCountryDetails"></div>
         </div>
-
-    </section>
-
-
-    <!-- PROFESSORES -->
-
-    <section id="professores" class="secao">
-
-        <h2>👨‍🏫 Professores</h2>
-
-        <div class="cards">
-
-            <div class="card professor">
-                <div class="icone">👨‍🏫</div>
-                <h3>Professor João</h3>
-                <p>Matemática</p>
-            </div>
-
-            <div class="card professor">
-                <div class="icone">👩‍🏫</div>
-                <h3>Professora Maria</h3>
-                <p>Português</p>
-            </div>
-
-            <div class="card professor">
-                <div class="icone">👨‍🏫</div>
-                <h3>Professor Carlos</h3>
-                <p>História</p>
-            </div>
-
-            <div class="card professor">
-                <div class="icone">👩‍🏫</div>
-                <h3>Professora Ana</h3>
-                <p>Ciências</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- NOTÍCIAS -->
-
-    <section id="noticias" class="secao">
-
-        <h2>📰 Notícias da Escola</h2>
-
-        <div class="noticia">
-
-            <h3>🎉 Feira de Ciências</h3>
-
-            <p>
-                A escola realizará uma feira de ciências
-                com apresentações dos alunos.
-            </p>
-
-            <span>Data: 15/10/2026</span>
-
-        </div>
-
-
-        <div class="noticia">
-
-            <h3>⚽ Campeonato Escolar</h3>
-
-            <p>
-                Os alunos poderão participar do campeonato
-                esportivo da escola.
-            </p>
-
-            <span>Data: 20/10/2026</span>
-
-        </div>
-
-
-        <div class="noticia">
-
-            <h3>📚 Semana da Leitura</h3>
-
-            <p>
-                Teremos atividades especiais de leitura
-                durante toda a semana.
-            </p>
-
-            <span>Data: 05/11/2026</span>
-
-        </div>
-
-    </section>
-
-
-    <!-- CALENDÁRIO -->
-
-    <section id="calendario" class="secao">
-
-        <h2>📅 Calendário Escolar</h2>
-
-        <table>
-
-            <tr>
-                <th>Data</th>
-                <th>Evento</th>
-            </tr>
-
-            <tr>
-                <td>15/10/2026</td>
-                <td>Feira de Ciências</td>
-            </tr>
-
-            <tr>
-                <td>20/10/2026</td>
-                <td>Campeonato Escolar</td>
-            </tr>
-
-            <tr>
-                <td>05/11/2026</td>
-                <td>Semana da Leitura</td>
-            </tr>
-
-            <tr>
-                <td>20/11/2026</td>
-                <td>Evento Cultural</td>
-            </tr>
-
-        </table>
-
-    </section>
-
-
-    <!-- LOGIN -->
-
-    <section class="login secao">
-
-        <h2>🔐 Área do Aluno</h2>
-
-        <p>Entre na área do aluno:</p>
-
-        <input
-            type="text"
-            id="usuario"
-            placeholder="Nome do aluno"
-        >
-
-        <input
-            type="password"
-            id="senha"
-            placeholder="Senha"
-        >
-
-        <button onclick="login()">
-            Entrar
-        </button>
-
-        <p id="resultado"></p>
-
-    </section>
-
-
-    <!-- CONTATO -->
-
-    <section id="contato" class="secao">
-
-        <h2>📞 Entre em contato</h2>
-
-        <div class="contato">
-
-            <p>📧 E-mail: contato@escolafuturo.com</p>
-
-            <p>📱 Telefone: (86) 99999-9999</p>
-
-            <p>📍 Endereço: Rua da Educação, 100</p>
-
-        </div>
-
-
-        <h3>Envie uma mensagem</h3>
-
-        <form onsubmit="enviarFormulario(event)">
-
-            <input
-                type="text"
-                placeholder="Seu nome"
-                required
-            >
-
-            <input
-                type="email"
-                placeholder="Seu e-mail"
-                required
-            >
-
-            <textarea
-                placeholder="Digite sua mensagem"
-                required
-            ></textarea>
-
-            <button type="submit">
-                Enviar mensagem
-            </button>
-
-        </form>
-
-    </section>
-
-
-    <!-- RODAPÉ -->
+    </div>
 
     <footer>
-
-        <h3>🏫 Escola Futuro</h3>
-
-        <p>
-            Educação para transformar o futuro.
-        </p>
-
-        <p>
-            © 2026 Escola Futuro
-        </p>
-
+        <p>© 2024 - Pesquisa de Países | Dados da ONU</p>
     </footer>
 
-
+    <script src="countries.js"></script>
     <script src="script.js"></script>
-
 </body>
-
 </html>
