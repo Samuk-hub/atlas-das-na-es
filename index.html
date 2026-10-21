@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🌍 Países do Mundo - ONU</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>🌍 Países do Mundo</h1>
@@ -52,7 +54,29 @@
         <p>© 2024 - Pesquisa de Países | Dados da ONU</p>
     </footer>
 
+    <script>
+        async function enviarCuriosidade(textoDaCuriosidade, categoria) {
+            const resposta = await fetch('/.netlify/functions/salvar-curiosidade', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    texto: textoDaCuriosidade,
+                    categoria: categoria
+                })
+            });
+
+            const dados = await resposta.json();
+            console.log(dados);
+        }
+
+        // Executando o teste:
+        enviarCuriosidade("Os polvos têm três corações e o sangue deles é azul.", "Animais");
+    </script>
+
     <script src="countries.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
