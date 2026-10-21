@@ -22,4 +22,4 @@ exports.handler = async (event, context) => {
   } finally {
     await client.close();
   }
-};
+}
